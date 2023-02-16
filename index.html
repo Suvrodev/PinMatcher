@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input class="form-control" type="text" id="showpinid">
+                    <input class="form-control pingenarateinput" type="text" id="showpinid" disabled>
                     <button class="generate-btn" id="genaratepinid">Generate Pin</button>
                 </div>
             </div>
@@ -45,10 +45,12 @@
                             <div>
                                 <button id="verify_pin" type="submit" class="submit-btn">Submit</button>
                                 <p class="action-left"><span id="tryid"></span> try left</p>
+                               
                             </div>
                     </div>
                 </div>
             </div>
+            <p class="countclass" id="countid"><span id="countsecondid">3</span></p>
         </div>
         <div class="notify-section">
             <p class="notify" id="pin_unmatched">❌ Pin Didn't Match, Please try again</p>

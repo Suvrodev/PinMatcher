@@ -58,6 +58,11 @@ document
 ////Verify
 const PINMATCHED=document.getElementById('pin_matched');
 const PINUNMATCHED=document.getElementById('pin_unmatched');
+
+const COUNTING=document.getElementById('countsecondid');
+
+COUNTING.style.display='none';
+
 PINMATCHED.style.display='none';
 PINUNMATCHED.style.display='none';
 
@@ -84,11 +89,44 @@ document.getElementById("verify_pin").addEventListener("click", function () {
             if(count===0){
                 document.getElementById('verify_pin').setAttribute('disabled',true);
                 document.getElementById('verify_pin').style.backgroundColor='skyblue';
+                COUNTING.style.display='block';
+                TimingFunction();
+                TimingFunction2();
             }
             document.getElementById('tryid').innerText=count;
           }
       }
   }
  
-  
 });
+
+let SecondCount=parseFloat(COUNTING.innerText);
+function TimingFunction(){
+  
+  setTimeout(function(){
+    document.getElementById('verify_pin').removeAttribute('disabled');
+    document.getElementById('verify_pin').style.background= '#495BC3';
+    PINUNMATCHED.style.display='none';
+    count=3;
+    document.getElementById('tryid').innerText=count;
+
+    
+  },3000);
+
+  /////Others work start
+  // SecondCount--;
+  // COUNTING.innerText=SecondCount;
+  ////Others work end
+}
+
+function TimingFunction2(){
+  setInterval(()=>{
+    SecondCount--;
+    if(SecondCount<0){
+
+    }else{
+      COUNTING.innerText=SecondCount;
+    }
+
+  },1000)
+}
